@@ -1,0 +1,81 @@
+package com.kongpf.commonhelper;
+
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+
+import java.net.URISyntaxException;
+
+/**
+ * Created by pengf on 2017/4/14.
+ */
+
+public class AlipayHelper {
+
+    public static final String ALIPAY_PACKAGE_NAME = "com.eg.android.AlipayGphone";
+    // 旧版支付宝二维码通用 Intent Scheme Url 格式
+    private static final String INTENT_URL_FORMAT = "intent://platformapi/startapp?saId=10000007&" +
+    "clientVersion=3.7.0.0718&qrcode=https%3A%2F%2Fqr.alipay.com%2F{urlCode}%3F_s" +
+    "%3Dweb-other&_t=1472443966571#Intent;" +
+    "scheme=alipayqr;package=com.eg.android.AlipayGphone;end";
+
+
+    public static boolean isAlipayInstalled(Context context)
+    {
+        return ApkHelper.isInstalled(context,ALIPAY_PACKAGE_NAME);
+    }
+
+    public static String getAlipayVersionName(Context context)
+    {
+        return ApkHelper.getAppVersionName(context,ALIPAY_PACKAGE_NAME);
+    }
+    public static int getAlipayVersionCode(Context context)
+    {
+        return ApkHelper.getAppVersionCode(context,ALIPAY_PACKAGE_NAME);
+    }
+
+    public static boolean startAlipayClient(Activity activity, String urlCode)
+    {
+        return startIntentUrl(activity, INTENT_URL_FORMAT.replace("{urlCode}", urlCode));
+    }
+
+    private static boolean startIntentUrl(Activity activity, String intentFullUrl) {
+        try
+        {
+            Intent intent = Intent.parseUri(intentFullUrl, Intent.URI_INTENT_SCHEME);
+            activity.startActivity(intent);
+            return true;
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            return false;
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean openAlipayScan(Context context) {
+        try {
+            Uri uri = Uri.parse("alipayqr://platformapi/startapp?saId=10000007");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            context.startActivity(intent);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean openAlipayBarcode(Context context) {
+        try {
+            Uri uri = Uri.parse("alipayqr://platformapi/startapp?saId=20000056");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            context.startActivity(intent);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+}
