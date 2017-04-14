@@ -96,5 +96,15 @@ public class ApkHelper
         return false;
     }
 
-
+    public static boolean isInstalled(Context context,String packageName)
+    {
+        PackageManager pm = context.getPackageManager();
+        try {
+            PackageInfo info = pm.getPackageInfo(packageName, 0);
+            return info != null;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
