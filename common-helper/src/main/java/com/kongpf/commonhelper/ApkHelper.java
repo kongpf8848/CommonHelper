@@ -62,22 +62,33 @@ public class ApkHelper
 
     public static String getAppVersionName(Context context)
     {
+        return getAppVersionName(context,context.getPackageName());
+    }
+
+    public static int getAppVersionCode(Context context)
+    {
+        return getAppVersionCode(context,context.getPackageName());
+    }
+
+
+    public static String getAppVersionName(Context context,String packageName)
+    {
         String version = "";
         try
         {
-            version = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            version = context.getPackageManager().getPackageInfo(packageName, 0).versionName;
         } catch (PackageManager.NameNotFoundException e)
         {
         }
         return version;
     }
 
-    public static int getAppVersionCode(Context context)
+    public static int getAppVersionCode(Context context,String packageName)
     {
         int versionCode = 0;
         try
         {
-            versionCode = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            versionCode = context.getPackageManager().getPackageInfo(packageName, 0).versionCode;
         } catch (PackageManager.NameNotFoundException e) {
         }
         return versionCode;
