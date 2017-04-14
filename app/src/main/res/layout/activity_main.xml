@@ -41,6 +41,27 @@
             android:layout_marginTop="20dp"
             android:text="Screen" />
 
+        <Button
+        android:id="@+id/button5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="打开支付宝扫一扫" />
+
+        <Button
+        android:id="@+id/button6"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="打开支付宝付款码" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="支付宝转账" />
+
     </LinearLayout>
 
 </ScrollView>

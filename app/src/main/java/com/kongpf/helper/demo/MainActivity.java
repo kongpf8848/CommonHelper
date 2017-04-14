@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.kongpf.commonhelper.AlgorithmHelper;
+import com.kongpf.commonhelper.AlipayHelper;
 import com.kongpf.commonhelper.ApkHelper;
 import com.kongpf.commonhelper.ScreenHelper;
 import com.kongpf.commonhelper.ToastHelper;
@@ -42,5 +43,22 @@ public class MainActivity extends AppCompatActivity {
     public void onButton4()
     {
         ToastHelper.toast(ScreenHelper.getScreenSize(this).toString());
+    }
+
+    @OnClick(R.id.button5)
+    public void onButton5()
+    {
+        AlipayHelper.openAlipayScan(this);
+    }
+
+    @OnClick(R.id.button6)
+    public void onButton6()
+    {
+        AlipayHelper.openAlipayBarcode(this);
+    }
+    @OnClick(R.id.button7)
+    public void onButton7()
+    {
+        AlipayHelper.startAlipayClient(this,"aehvyvf4taua18zo6e");
     }
 }
