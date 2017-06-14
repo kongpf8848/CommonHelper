@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.1"
+version = "1.0.2"
 
 android {
     compileSdkVersion 25
@@ -35,7 +35,9 @@ dependencies {
 
 def siteUrl = 'https://github.com/kongpf8848/CommonHelper' // 项目的主页
 def gitUrl = 'https://github.com/kongpf8848/CommonHelper.git' // Git仓库的url
+def libraryDescription= 'Android Common Helper'
 group = "com.kongpf.commonhelper" // Maven Group ID for the artifact，一般填你唯一的包名
+
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
@@ -43,8 +45,9 @@ install {
             project {
                 packaging 'aar'
                 artifactId = 'common-helper'
-                version = '1.0.1'
-                name 'Common Helper' //项目描述
+                version = '1.0.2'
+                name 'Common Helper'
+                description libraryDescription
                 url siteUrl
                 // Set your license
                 licenses {
@@ -97,9 +100,17 @@ bintray {
     pkg {
         repo = "maven"
         name = "CommonHelper"
+        desc = libraryDescription
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
         publish = true
+        version {
+            desc = libraryDescription
+            gpg {
+                sign = true
+                passphrase = properties.getProperty("bintray.gpg.password")
+            }
+        }
     }
 }
