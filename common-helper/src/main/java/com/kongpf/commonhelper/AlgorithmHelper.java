@@ -30,15 +30,6 @@ public class AlgorithmHelper {
     }
 
 
-    private static String convertToHex(byte[] bytes) {
-        char[] hexChars = new char[bytes.length * 2];
-        for (int j = 0; j < bytes.length; j++) {
-            int v = bytes[j] & 0xFF;
-            hexChars[j * 2] = HEX_CHARS[v >>> 4];
-            hexChars[j * 2 + 1] = HEX_CHARS[v & 0x0F];
-        }
-        return new String(hexChars);
-    }
 
     public static String getHash(String text, int algorithm) {
         String hash = null;
@@ -47,7 +38,7 @@ public class AlgorithmHelper {
                 final MessageDigest digest = MessageDigest.getInstance(mapList.get(algorithm));
                 final byte[] bytes = text.getBytes("UTF-8");
                 digest.update(bytes, 0, bytes.length);
-                hash = convertToHex(digest.digest());
+                hash = ByteHelper.byteArray2HexString(digest.digest());
             }
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -77,7 +68,7 @@ public class AlgorithmHelper {
                 messageDigest.update(buffer, 0, len);
             }
             byte[] bytes = messageDigest.digest();
-            hash = convertToHex(bytes);
+            hash = ByteHelper.byteArray2HexString(bytes);
         } catch (Exception e) {
         } finally {
             if (is != null) {
