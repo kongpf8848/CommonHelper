@@ -1,0 +1,22 @@
+ext {
+
+    def support_version = "25.3.1"
+    def butterknife_version = "8.4.0"
+
+    android = [
+            "compileSdkVersion": 25,
+            "buildToolsVersion": "25.0.3",
+            "minSdkVersion"    : 14,
+            "targetSdkVersion" : 25
+    ]
+
+    dependencies = [
+            "junit"                   : "junit:junit:4.12",
+            "appcompat-v7"            : "com.android.support:appcompat-v7:$support_version",
+            "support-v4"              : "com.android.support:support-v4:$support_version",
+            "butterknife"             : "com.jakewharton:butterknife:$butterknife_version",
+            "butterknife-compiler"    : "com.jakewharton:butterknife-compiler:$butterknife_version",
+
+    ]
+
+}
