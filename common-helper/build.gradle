@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.3"
+version = "1.0.4"
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -10,7 +10,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
-        versionCode 4
+        versionCode 5
         versionName version
 
     }
@@ -43,7 +43,7 @@ install {
             project {
                 packaging 'aar'
                 artifactId = 'common-helper'
-                version = '1.0.3'
+                version = '1.0.4'
                 name 'Common Helper'
                 description libraryDescription
                 url siteUrl

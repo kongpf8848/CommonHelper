@@ -39,7 +39,7 @@ public class ApkHelper
         String value = "";
         try {
             ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
-            value = appInfo.metaData.getString(name);
+            value = String.valueOf(appInfo.metaData.get(name));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
