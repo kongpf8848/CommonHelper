@@ -35,14 +35,13 @@ dependencies {
 def siteUrl = 'https://github.com/kongpf8848/CommonHelper' // 项目的主页
 def gitUrl = 'https://github.com/kongpf8848/CommonHelper.git' // Git仓库的url
 def libraryDescription= 'Android Common Helper'
-def group = "com.kongpf.commonhelper"
-def artifact_Id="common-helper"
+group = "com.kongpf.commonhelper"
 install {
     repositories.mavenInstaller {
         pom {
             project {
                 packaging 'aar'
-                artifactId "$artifact_Id"
+                artifactId 'common-helper'
                 version  "$version"
                 name 'Common Helper'
                 description libraryDescription
