@@ -4,5 +4,5 @@ Android Common Helper Class
 
 # Usage
 ```
-compile 'com.kongpf.commonhelper:common-helper:1.0.4'
+compile 'com.kongpf.commonhelper:common-helper:1.0.6'
 ```
