@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    api project(':library')
+    api project(':common-helper')
     api fileTree(dir: 'libs', include: ['*.jar'])
     api rootProject.ext.dependencies["appcompat-v7"]
     testImplementation rootProject.ext.dependencies["junit"]
