@@ -2,6 +2,8 @@
 
 Android开发常用的一些功能方法
 
+![image]( https://github.com/kongpf8848/CommonHelper/blob/master/pic/demo.jpg)
+
 # 添加依赖
 ```
 compile 'com.kongpf.commonhelper:common-helper:1.0.6'
