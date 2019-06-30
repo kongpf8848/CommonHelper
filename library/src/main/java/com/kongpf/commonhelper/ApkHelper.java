@@ -7,7 +7,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Process;
+import android.support.v4.content.FileProvider;
 
 import java.io.File;
 import java.util.List;
@@ -46,18 +48,28 @@ public class ApkHelper
         return value;
     }
 
-
-
-    public static void installApk(Context context, File file) {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.addCategory(Intent.CATEGORY_DEFAULT);
-        intent.setType("application/vnd.android.package-archive");
-        intent.setData(Uri.fromFile(file));
-        intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
+    public static void installApk(Context context, File file, String authority) {
+        if (file == null || !file.exists()) {
+            return;
+        }
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            Uri uri;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                uri = FileProvider.getUriForFile(context, authority, file);
+            } else
+            {
+                uri = Uri.fromFile(file);
+            }
+            intent.setDataAndType(uri, "application/vnd.android.package-archive");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 
 
     public static String getAppVersionName(Context context)

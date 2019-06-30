@@ -1,1 +1,1 @@
-include ':app', ':common-helper'
+include ':app', ':library'

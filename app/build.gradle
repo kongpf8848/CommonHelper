@@ -23,13 +23,13 @@ android {
 }
 
 dependencies {
+    api project(':library')
     api fileTree(dir: 'libs', include: ['*.jar'])
-
     api rootProject.ext.dependencies["appcompat-v7"]
     testImplementation rootProject.ext.dependencies["junit"]
 
     api rootProject.ext.dependencies["butterknife"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
-    api project(':common-helper')
+
 }
