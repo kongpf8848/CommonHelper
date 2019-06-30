@@ -14,7 +14,7 @@ AlgorithmHelper.getHash(String text, int algorithm);  //获取字符串的Hash�
 
 AlgorithmHelper.getMD5(String text);  //获取字符串的MD5值
 
-AlgorithmHelper.getMD5(File file)  //获取文件的MD5值
+AlgorithmHelper.getMD5(File file);  //获取文件的MD5值
 
 ```
 # AlipayHelper
