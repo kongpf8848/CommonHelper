@@ -48,5 +48,14 @@ ApkHelper.isMainProcess(this);   //判断当前进程是否为主进程
 
 ApkHelper.isInstalled(this,"com.tencent.mm");  //判断指定应用是否安装
 
+```
+# AssetHelper
+```
+//复制assets目录下的文件到指定目录,如复制到SD卡上，需申请WRITE_EXTERNAL_STORAGE权限
+AssetHelper.copyAsset(this,"city.json","xxx"); 
+
+```
+# ByteHelper
+```
 
 ```
