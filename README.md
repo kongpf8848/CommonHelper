@@ -99,7 +99,7 @@ SystemHelper.getStatusbarHeight(Context context);   //获取状态栏高度
 
 SystemHelper.hasSDCard();  //判断是否有SD卡 
 ```
-#ToastHelper
+# ToastHelper
 Toast帮助类
 ```
 ToastHelper.toast(int resId,int duration); //显示Toast
