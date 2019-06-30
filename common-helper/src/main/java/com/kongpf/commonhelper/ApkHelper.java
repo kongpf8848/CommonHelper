@@ -20,7 +20,7 @@ import java.util.List;
 
 public class ApkHelper
 {
-
+    //判断程序是否为Debug模式
     public static boolean isDebugMode(Context context) {
         try {
             String packageName = context.getPackageName();
@@ -36,7 +36,7 @@ public class ApkHelper
         return false;
     }
 
-
+    //获取AndroidManifest.xml中的meta标签数据
     public static String getApplicationMetaValue(Context context,String name) {
         String value = "";
         try {
@@ -48,6 +48,48 @@ public class ApkHelper
         return value;
     }
 
+
+    public static String getAppVersionName(Context context)
+    {
+        return getAppVersionName(context,context.getPackageName());
+    }
+
+    public static int getAppVersionCode(Context context)
+    {
+        return getAppVersionCode(context,context.getPackageName());
+    }
+
+    //获取指定包名的版本名称
+    public static String getAppVersionName(Context context,String packageName)
+    {
+        String version = "";
+        try
+        {
+            version = context.getPackageManager().getPackageInfo(packageName, 0).versionName;
+        } catch (PackageManager.NameNotFoundException e)
+        {
+        }
+        return version;
+    }
+
+    //获取指定包名的版本号
+    public static int getAppVersionCode(Context context,String packageName)
+    {
+        int versionCode = 0;
+        try
+        {
+            versionCode = context.getPackageManager().getPackageInfo(packageName, 0).versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        return versionCode;
+    }
+
+    /**
+     *安装Apk
+     * @param context
+     * @param file
+     * @param authority
+     */
     public static void installApk(Context context, File file, String authority) {
         if (file == null || !file.exists()) {
             return;
@@ -70,42 +112,7 @@ public class ApkHelper
         }
     }
 
-
-
-    public static String getAppVersionName(Context context)
-    {
-        return getAppVersionName(context,context.getPackageName());
-    }
-
-    public static int getAppVersionCode(Context context)
-    {
-        return getAppVersionCode(context,context.getPackageName());
-    }
-
-
-    public static String getAppVersionName(Context context,String packageName)
-    {
-        String version = "";
-        try
-        {
-            version = context.getPackageManager().getPackageInfo(packageName, 0).versionName;
-        } catch (PackageManager.NameNotFoundException e)
-        {
-        }
-        return version;
-    }
-
-    public static int getAppVersionCode(Context context,String packageName)
-    {
-        int versionCode = 0;
-        try
-        {
-            versionCode = context.getPackageManager().getPackageInfo(packageName, 0).versionCode;
-        } catch (PackageManager.NameNotFoundException e) {
-        }
-        return versionCode;
-    }
-
+    //判断当前进程是否为主进程
     public static boolean isMainProcess(Context context) {
         ActivityManager am = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE));
         List<ActivityManager.RunningAppProcessInfo> processInfos = am.getRunningAppProcesses();
@@ -119,6 +126,7 @@ public class ApkHelper
         return false;
     }
 
+    //判断指定应用是否安装
     public static boolean isInstalled(Context context,String packageName)
     {
         PackageManager pm = context.getPackageManager();

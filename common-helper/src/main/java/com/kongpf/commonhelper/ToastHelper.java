@@ -18,6 +18,8 @@ public class ToastHelper
     {
         app=application;
     }
+
+
     public static void toast(int resId)
     {
         if(app!=null)

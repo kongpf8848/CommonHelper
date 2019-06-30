@@ -25,21 +25,21 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Md5" />
+            android:text="MD5" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Version" />
+            android:text="微信版本" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Screen" />
+            android:text="屏幕信息" />
 
         <Button
         android:id="@+id/button5"
@@ -61,6 +61,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="支付宝转账" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="程序是否为Debug" />
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="meta数据" />
+
 
 
     </LinearLayout>

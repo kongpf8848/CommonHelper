@@ -3,6 +3,7 @@ package com.kongpf.commonhelper;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by pengf on 2017/2/21.
@@ -10,11 +11,12 @@ import java.io.InputStream;
 
 public class StreamHelper {
 
-    public static String readStream(InputStream is)
+    //将InputStream转换为String
+    public static String toString(InputStream is)
     {
         try {
             byte[] byteStream = toByte(is);
-            return new String(byteStream,"utf-8");
+            return new String(byteStream, StandardCharsets.UTF_8);
         }
         catch (Exception e)
         {
@@ -23,7 +25,7 @@ public class StreamHelper {
         }
 
     }
-
+    //将InputStream转换为字节数组
     public static byte[] toByte(InputStream is) throws IOException {
         ByteArrayOutputStream baos=new ByteArrayOutputStream();
         byte[]buffer=new byte[1024];
@@ -35,7 +37,6 @@ public class StreamHelper {
         baos.flush();
         baos.close();
         is.close();
-
         return baos.toByteArray();
     }
 }

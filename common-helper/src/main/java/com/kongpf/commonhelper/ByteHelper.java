@@ -23,6 +23,7 @@ public class ByteHelper {
         return (char) (i < 10 ? i + '0' : i - 10 + 'a');
     }
 
+    //字节数组转化为16进制字符串
     public static String byteArray2HexString(byte[] bArr) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0, len = bArr.length; i < len; i++) {
@@ -30,7 +31,7 @@ public class ByteHelper {
         }
         return builder.toString();
     }
-
+    //16进制字符串转化为字节数组
     public static byte[] hexString2ByteArray(String hexStr) {
         if (hexStr == null) {
             return null;

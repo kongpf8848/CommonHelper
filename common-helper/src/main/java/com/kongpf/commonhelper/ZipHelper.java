@@ -12,6 +12,7 @@ import java.util.zip.ZipFile;
 
 public class ZipHelper {
 
+    //解压zip文件到指定文件
     public static void unzip(File zip, File dest) throws IOException {
 
         ZipFile zipFile = new ZipFile(zip);
