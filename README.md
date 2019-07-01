@@ -6,7 +6,7 @@ Android开发常用的一些功能方法
 
 # 添加依赖
 ```
-compile 'com.kongpf.commonhelper:common-helper:1.0.6'
+compile 'com.kongpf.commonhelper:common-helper:1.0.7'
 ```
 
 # AlgorithmHelper
