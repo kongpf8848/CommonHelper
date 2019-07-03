@@ -112,3 +112,18 @@ ToastHelper.toast(String msg,int duration); //显示Toast
 ```
 ZipHelper.unzip(File zip, File dest); //解压zip文件到指定文件
 ```
+MarketHelper
+```
+MarketHelper.isMarketAvailable(Context context);  //检查应用市场是否存在
+
+MarketHelper.gotoMarket(Context context, String appPackageName, String marketPackageName); //跳转到应用市场
+```
+IntentHelper
+```
+IntentHelper.launchApp(Context context, String packageName);  //跳转到指定应用
+
+IntentHelper.gotoAppSettings(Context context);  //跳转到应用详情
+```
+
+
+
