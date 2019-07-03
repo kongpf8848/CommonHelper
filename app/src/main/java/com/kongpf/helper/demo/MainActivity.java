@@ -1,6 +1,7 @@
 package com.kongpf.helper.demo;
 
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 
 import com.kongpf.commonhelper.AlgorithmHelper;
@@ -9,6 +10,8 @@ import com.kongpf.commonhelper.ApkHelper;
 import com.kongpf.commonhelper.AssetHelper;
 import com.kongpf.commonhelper.ByteHelper;
 import com.kongpf.commonhelper.CameraHelper;
+import com.kongpf.commonhelper.IntentHelper;
+import com.kongpf.commonhelper.MarketHelper;
 import com.kongpf.commonhelper.ScreenHelper;
 import com.kongpf.commonhelper.StreamHelper;
 import com.kongpf.commonhelper.ToastHelper;
@@ -41,11 +44,10 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.button3)
     public void onButton3() {
 
-        String packageName="com.tencent.mm";
-        if(ApkHelper.isInstalled(this,packageName)) {
+        String packageName = "com.tencent.mm";
+        if (ApkHelper.isInstalled(this, packageName)) {
             ToastHelper.toast("微信版本:" + ApkHelper.getAppVersionName(this, packageName));
-        }
-        else{
+        } else {
             ToastHelper.toast("机器没有安装微信!!!");
         }
     }
@@ -72,13 +74,32 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.button8)
     public void onButton8() {
-      ToastHelper.toast("程序是否为Debug:"+ApkHelper.isDebugMode(this));
+        ToastHelper.toast("程序是否为Debug:" + ApkHelper.isDebugMode(this));
     }
 
     @OnClick(R.id.button9)
     public void onButton9() {
-        ToastHelper.toast("meta:"+ApkHelper.getApplicationMetaValue(this,"CHANNEL"));
+        ToastHelper.toast("meta:" + ApkHelper.getApplicationMetaValue(this, "CHANNEL"));
     }
 
 
+    @OnClick(R.id.button10)
+    public void onButton10() {
+        IntentHelper.launchApp(this, Constants.PACKAGE_WECHAT);
+    }
+
+    @OnClick(R.id.button11)
+    public void onButton11() {
+        IntentHelper.gotoAppSettings(this);
+    }
+
+    //MarketUtil
+    @OnClick(R.id.button12)
+    public void onButton12() {
+        if (MarketHelper.isMarketAvailable(this)) {
+            MarketHelper.gotoMarket(this, Constants.PACKAGE_WECHAT);
+        } else {
+            ToastHelper.toast("请先安装应用市场!!!");
+        }
+    }
 }

@@ -74,7 +74,25 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="meta数据" />
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="跳转到微信" />
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="跳转到应用详情" />
 
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="跳转到应用市场" />
 
 
     </LinearLayout>
