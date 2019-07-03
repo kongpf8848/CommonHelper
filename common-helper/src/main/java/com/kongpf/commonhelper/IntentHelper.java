@@ -20,7 +20,7 @@ public class IntentHelper {
     public static void gotoAppSettings(Context context){
         Intent intent=new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         intent.setData(Uri.parse("package:"+context.getPackageName()));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
