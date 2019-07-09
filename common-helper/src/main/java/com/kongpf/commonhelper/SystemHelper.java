@@ -26,15 +26,6 @@ import static android.content.Context.TELEPHONY_SERVICE;
 public class SystemHelper
 {
 
-    //获取状态栏高度
-    public static int getStatusbarHeight(Context context) {
-        int statusHeight = 0;
-        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            statusHeight = context.getResources().getDimensionPixelSize(resourceId);
-        }
-        return statusHeight;
-    }
 
     //判断是否有SD卡
     public static boolean hasSDCard()
