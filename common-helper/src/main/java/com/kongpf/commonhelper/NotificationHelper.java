@@ -5,6 +5,7 @@ import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.support.annotation.RequiresApi;
@@ -54,6 +55,32 @@ public class NotificationHelper {
         intent.putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
         intent.putExtra(Settings.EXTRA_CHANNEL_ID, channelId);
         context.startActivity(intent);
+    }
+
+    //跳转到通知设置界面
+    public static void gotoNotificationSetting(Context context){
+        try{
+            Intent intent = new Intent();
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O) {
+                intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                intent.putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
+            }
+            else if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+                intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                intent.putExtra("app_package",context.getPackageName());
+                intent.putExtra("app_uid",context.getApplicationInfo().uid);
+            }
+            else{
+                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                intent.setData(Uri.parse("package:"+context.getPackageName()));
+            }
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            IntentHelper.gotoAppSettings(context);
+        }
     }
 
 
