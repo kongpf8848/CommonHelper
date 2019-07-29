@@ -142,7 +142,7 @@ isChannelsEnabled(Context context, String channelId); //判断渠道通知是否
 
 gotoChannelSetting(Context context, String channelId); //跳转到渠道设置
 
-gotoNotificationSetting(Context context) //跳转到通知设置界面
+gotoNotificationSetting(Context context); //跳转到通知设置界面
 ```
 # License
 ```
