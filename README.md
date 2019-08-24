@@ -6,7 +6,7 @@ Android开发常用的一些功能方法
 
 # 添加依赖
 ```
-implementation 'com.kongpf.commonhelper:common-helper:1.0.9'
+implementation 'com.kongpf.commonhelper:common-helper:1.0.11'
 ```
 
 # AlgorithmHelper
@@ -140,7 +140,9 @@ isNotficationEnabled(Context context); //判断通知功能是否开启
 
 isChannelsEnabled(Context context, String channelId); //判断渠道通知是否开启
 
-gotoChannelSetting( Context context, String channelId); //跳转到渠道设置
+gotoChannelSetting(Context context, String channelId); //跳转到渠道设置
+
+gotoNotificationSetting(Context context); //跳转到通知设置界面
 ```
 # License
 ```
