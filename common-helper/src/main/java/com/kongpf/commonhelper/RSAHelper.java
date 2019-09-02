@@ -35,7 +35,8 @@ public class RSAHelper {
     private static final String ALGORITHM = "RSA";
     private static final String TRANSFORMATION = "RSA/ECB/PKCS1Padding";
     private static final List<String> excludeList = new ArrayList<String>();
-
+    private static final int MAX_ENCRYPT_BLOCK = 117;
+    private static final int MAX_DECRYPT_BLOCK = 128;
     public static final int RSA_KEY_PUBLIC = 1;
     public static final int RSA_KEY_PRIVATE = 2;
 
@@ -116,18 +117,19 @@ public class RSAHelper {
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
             cipher.init(Cipher.ENCRYPT_MODE, key);
             int length = 0;
-            int segment_lenght = 117;
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            for (int i = 0; i < data.length; i += segment_lenght) {
-                if (i + segment_lenght > data.length) {
+            for (int i = 0; i < data.length; i += MAX_ENCRYPT_BLOCK) {
+                if (i + MAX_ENCRYPT_BLOCK > data.length) {
                     length = data.length - i;
                 } else {
-                    length = segment_lenght;
+                    length = MAX_ENCRYPT_BLOCK;
                 }
                 byte[] b = cipher.doFinal(data, i, length);
                 bos.write(b);
             }
-            return Base64.encodeToString(bos.toByteArray(), Base64.NO_WRAP);
+            byte[]bAll=bos.toByteArray();
+            bos.close();
+            return Base64.encodeToString(bAll, Base64.NO_WRAP);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (NoSuchPaddingException e) {
@@ -151,18 +153,19 @@ public class RSAHelper {
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
             cipher.init(Cipher.DECRYPT_MODE, key);
             int length = 0;
-            int segment_lenght = 128;
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            for (int i = 0; i < data.length; i += segment_lenght) {
-                if (i + segment_lenght > data.length) {
+            for (int i = 0; i < data.length; i += MAX_DECRYPT_BLOCK) {
+                if (i + MAX_DECRYPT_BLOCK > data.length) {
                     length = data.length - i;
                 } else {
-                    length = segment_lenght;
+                    length = MAX_DECRYPT_BLOCK;
                 }
                 byte[] b = cipher.doFinal(data, i, length);
                 bos.write(b);
             }
-            return new String(bos.toByteArray(), StandardCharsets.UTF_8);
+            byte[]bAll=bos.toByteArray();
+            bos.close();
+            return new String(bAll, StandardCharsets.UTF_8);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (NoSuchPaddingException e) {
