@@ -4,8 +4,6 @@ import android.content.Context;
 import android.support.annotation.IntDef;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Log;
-import android.widget.LinearLayout;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -18,7 +16,8 @@ import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import java.security.interfaces.RSAPrivateKey;
+import java.security.Signature;
+import java.security.SignatureException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
@@ -111,7 +110,7 @@ public class RSAHelper {
     }
 
     //RSA加密
-    public static String encrypt(String content, PublicKey key) {
+    public static String encrypt(String content,Key key) {
         try {
             byte[] data = content.getBytes(StandardCharsets.UTF_8);
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
@@ -127,7 +126,7 @@ public class RSAHelper {
                 byte[] b = cipher.doFinal(data, i, length);
                 bos.write(b);
             }
-            byte[]bAll=bos.toByteArray();
+            byte[] bAll = bos.toByteArray();
             bos.close();
             return Base64.encodeToString(bAll, Base64.NO_WRAP);
         } catch (NoSuchAlgorithmException e) {
@@ -147,7 +146,7 @@ public class RSAHelper {
     }
 
     //RSA解密
-    public static String decrypt(String content, PrivateKey key) {
+    public static String decrypt(String content, Key key) {
         try {
             byte[] data = Base64.decode(content, Base64.NO_WRAP);
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
@@ -163,7 +162,7 @@ public class RSAHelper {
                 byte[] b = cipher.doFinal(data, i, length);
                 bos.write(b);
             }
-            byte[]bAll=bos.toByteArray();
+            byte[] bAll = bos.toByteArray();
             bos.close();
             return new String(bAll, StandardCharsets.UTF_8);
         } catch (NoSuchAlgorithmException e) {
@@ -182,4 +181,19 @@ public class RSAHelper {
         return null;
     }
 
+    //签名
+    public String sign(String data,String algorithm,PrivateKey privateKey) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+        Signature signature = Signature.getInstance(algorithm);
+        signature.initSign(privateKey);
+        signature.update(data.getBytes(StandardCharsets.UTF_8));
+        return Base64.encodeToString(signature.sign(), Base64.NO_WRAP);
+    }
+
+    //验签
+    public boolean verify(String data,String algorithm,String sign,PublicKey publicKey) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+        Signature signature = Signature.getInstance(algorithm);
+        signature.initVerify(publicKey);
+        signature.update(data.getBytes(StandardCharsets.UTF_8));
+        return signature.verify(Base64.decode(sign.getBytes(StandardCharsets.UTF_8),Base64.NO_WRAP));
+    }
 }
