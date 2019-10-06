@@ -182,7 +182,7 @@ public class RSAHelper {
     }
 
     //签名
-    public String sign(String data,String algorithm,PrivateKey privateKey) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+    public static String sign(String data,String algorithm,PrivateKey privateKey) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         Signature signature = Signature.getInstance(algorithm);
         signature.initSign(privateKey);
         signature.update(data.getBytes(StandardCharsets.UTF_8));
@@ -190,7 +190,7 @@ public class RSAHelper {
     }
 
     //验签
-    public boolean verify(String data,String algorithm,String sign,PublicKey publicKey) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+    public static boolean verify(String data,String algorithm,String sign,PublicKey publicKey) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         Signature signature = Signature.getInstance(algorithm);
         signature.initVerify(publicKey);
         signature.update(data.getBytes(StandardCharsets.UTF_8));
