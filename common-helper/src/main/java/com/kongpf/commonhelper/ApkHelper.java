@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Process;
@@ -137,5 +138,20 @@ public class ApkHelper
             e.printStackTrace();
             return false;
         }
+    }
+
+    //获取APK签名
+    public static String getSign(Context context, String packageName) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
+            Signature[] signatureList = packageInfo.signatures;
+            if ((signatureList == null) || (signatureList.length == 0)) {
+                return null;
+            }
+            return AlgorithmHelper.getMD5(new String(signatureList[0].toByteArray()));
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
