@@ -93,11 +93,19 @@ public class MainActivity extends AppCompatActivity {
         IntentHelper.gotoAppSettings(this);
     }
 
-    //MarketUtil
     @OnClick(R.id.button12)
     public void onButton12() {
         if (MarketHelper.isMarketAvailable(this)) {
             MarketHelper.gotoMarket(this, Constants.PACKAGE_WECHAT);
+        } else {
+            ToastHelper.toast("请先安装应用市场!!!");
+        }
+    }
+
+    @OnClick(R.id.button13)
+    public void onButton13() {
+        if (MarketHelper.isMarketAvailable(this)) {
+            MarketHelper.gotoGooglePlay(this,Constants.PACKAGE_WECHAT );
         } else {
             ToastHelper.toast("请先安装应用市场!!!");
         }

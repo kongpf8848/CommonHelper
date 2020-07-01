@@ -154,4 +154,15 @@ public class ApkHelper
         }
         return null;
     }
+
+    //判断当前应用是否从Google Play下载
+    public static boolean isInstalledFromGooglePlay(Context context){
+        try {
+            String installer=context.getPackageManager().getInstallerPackageName(context.getPackageName());
+            return installer!=null && installer.equals(MarketHelper.GOOGLEPLAY_PACKAGENAME);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

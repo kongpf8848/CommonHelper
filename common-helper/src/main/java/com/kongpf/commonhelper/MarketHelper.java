@@ -11,6 +11,7 @@ import java.util.List;
 public class MarketHelper {
 
     public static final String MARKET_DATA = "market://details";
+    public static final String GOOGLEPLAY_PACKAGENAME = "com.android.vending";
 
     //检查应用市场是否存在
     public static boolean isMarketAvailable(Context context) {
@@ -24,6 +25,11 @@ public class MarketHelper {
     //跳转到应用市场
     public static void gotoMarket(Context context, String appPackageName) {
         gotoMarket(context, appPackageName, null);
+    }
+
+    //跳转到GooglePlay商店
+    public static void gotoGooglePlay(Context context, String appPackageName) {
+        gotoMarket(context, appPackageName, GOOGLEPLAY_PACKAGENAME);
     }
 
     //跳转到应用市场
