@@ -52,6 +52,8 @@ isMainProcess(Context context);   //判断当前进程是否为主进程
 
 isInstalled(Context context,String packageName);  //判断指定应用是否安装
 
+isInstalledFromGooglePlay(Context context); //判断当前应用是否从Google Play下载
+
 ```
 # AssetHelper
 ```
@@ -115,6 +117,8 @@ unzip(File zip, File dest); //解压zip文件到指定文件
 isMarketAvailable(Context context);  //检查应用市场是否存在
 
 gotoMarket(Context context, String appPackageName, String marketPackageName); //跳转到应用市场
+
+gotoGooglePlay(Context context, String appPackageName); //跳转到GooglePlay商店
 ```
 # IntentHelper
 ```
