@@ -1,6 +1,7 @@
 package com.kongpf.helper.demo;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 
@@ -10,6 +11,7 @@ import com.kongpf.commonhelper.ApkHelper;
 import com.kongpf.commonhelper.AssetHelper;
 import com.kongpf.commonhelper.ByteHelper;
 import com.kongpf.commonhelper.CameraHelper;
+import com.kongpf.commonhelper.FileHelper;
 import com.kongpf.commonhelper.IntentHelper;
 import com.kongpf.commonhelper.MarketHelper;
 import com.kongpf.commonhelper.ScreenHelper;
@@ -108,6 +110,16 @@ public class MainActivity extends AppCompatActivity {
             MarketHelper.gotoGooglePlay(this,Constants.PACKAGE_WECHAT );
         } else {
             ToastHelper.toast("请先安装应用市场!!!");
+        }
+    }
+
+    @OnClick(R.id.button14)
+    public void onButton14() {
+        File dir=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+"taojiji");
+        if (FileHelper.deleteDir(dir)) {
+            ToastHelper.toast("delete ok");
+        } else {
+            ToastHelper.toast("delete fail");
         }
     }
 }
