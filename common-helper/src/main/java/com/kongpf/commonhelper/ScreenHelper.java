@@ -1,6 +1,7 @@
 package com.kongpf.commonhelper;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
@@ -52,6 +53,12 @@ public class ScreenHelper
 
 	}
 
+	//是否为平板
+	public static boolean isPad(Context context) {
+		Configuration configuration=context.getResources().getConfiguration();
+		int x=configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
+		return x>= Configuration.SCREENLAYOUT_SIZE_LARGE;
+	}
 
 	public static class ScreenSize {
 

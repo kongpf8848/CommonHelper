@@ -106,7 +106,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="删除目录" />
+            android:text="是否为平板" />
     </LinearLayout>
 
 </ScrollView>

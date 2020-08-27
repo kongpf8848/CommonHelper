@@ -115,11 +115,6 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.button14)
     public void onButton14() {
-        File dir=new File(Environment.getExternalStorageDirectory().getAbsolutePath()+File.separator+"taojiji");
-        if (FileHelper.deleteDir(dir)) {
-            ToastHelper.toast("delete ok");
-        } else {
-            ToastHelper.toast("delete fail");
-        }
+        ToastHelper.toast("isPad:"+ScreenHelper.isPad(this));
     }
 }
