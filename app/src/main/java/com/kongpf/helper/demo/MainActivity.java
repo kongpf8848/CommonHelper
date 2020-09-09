@@ -1,5 +1,6 @@
 package com.kongpf.helper.demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.SyncStateContract;
@@ -15,6 +16,7 @@ import com.kongpf.commonhelper.FileHelper;
 import com.kongpf.commonhelper.IntentHelper;
 import com.kongpf.commonhelper.MarketHelper;
 import com.kongpf.commonhelper.ScreenHelper;
+import com.kongpf.commonhelper.ShortCutHelper;
 import com.kongpf.commonhelper.StreamHelper;
 import com.kongpf.commonhelper.ToastHelper;
 
@@ -31,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
     }
 
     @OnClick(R.id.button1)
@@ -116,5 +123,10 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.button14)
     public void onButton14() {
         ToastHelper.toast("isPad:"+ScreenHelper.isPad(this));
+    }
+
+    @OnClick(R.id.button15)
+    public void onButton15() {
+        ShortCutHelper.createShortCut(this,"001","jack",R.mipmap.ic_launcher,this.getClass());
     }
 }

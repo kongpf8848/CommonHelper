@@ -107,6 +107,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="是否为平板" />
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="创建桌面快捷方式" />
     </LinearLayout>
 
 </ScrollView>
