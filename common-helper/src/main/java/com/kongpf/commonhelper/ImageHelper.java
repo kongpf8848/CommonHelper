@@ -3,10 +3,19 @@ package com.kongpf.commonhelper;
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.ColorFilter;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.widget.ImageView;
 
 public class ImageHelper {
 
@@ -103,5 +112,44 @@ public class ImageHelper {
      */
     public static boolean isGooglePhotosUri(Uri uri) {
         return "com.google.android.apps.photos.content".equals(uri.getAuthority());
+    }
+
+    /**
+     * 对ImageView像素进行倒置
+     */
+    public static void revert(@NonNull ImageView imageView) {
+        ColorFilter colorFilter=imageView.getColorFilter();
+        if(colorFilter==null){
+            ColorMatrix cm = new ColorMatrix(new float[]{
+                    -1, 0, 0, 0, 255,
+                    0, -1, 0, 0, 255,
+                    0, 0, -1, 0, 255,
+                    0, 0, 0, 1, 0
+            });
+            imageView.setColorFilter(new ColorMatrixColorFilter(cm));
+        }
+        else
+        {
+            imageView.setColorFilter(null);
+        }
+    }
+
+    /**
+     * 对ImageView进行旋转
+     */
+
+    public static void rotate(ImageView imageView,float degree){
+        Drawable drawable=imageView.getDrawable();
+        Bitmap bitmap=null;
+        if(drawable instanceof BitmapDrawable){
+            bitmap=((BitmapDrawable)drawable).getBitmap();
+        }
+        if (bitmap != null) {
+            Matrix matrix=new Matrix();
+            matrix.setRotate(degree);
+            Bitmap newBitmap= Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(),matrix,true);
+            imageView.setImageBitmap(newBitmap);
+            bitmap.recycle();
+        }
     }
 }
