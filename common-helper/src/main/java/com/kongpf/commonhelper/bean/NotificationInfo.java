@@ -1,5 +1,7 @@
 package com.kongpf.commonhelper.bean;
 
+import android.app.NotificationManager;
+
 public class NotificationInfo {
 
     private String groupId;
@@ -7,6 +9,18 @@ public class NotificationInfo {
     private String channelId;
     private String channelName;
     private int importance;
+
+    public NotificationInfo(String groupId, String groupName, String channelId, String channelName) {
+        this(groupId,groupName,channelId,channelName, NotificationManager.IMPORTANCE_DEFAULT);
+    }
+
+    public NotificationInfo(String groupId, String groupName, String channelId, String channelName, int importance) {
+        this.groupId = groupId;
+        this.groupName = groupName;
+        this.channelId = channelId;
+        this.channelName = channelName;
+        this.importance = importance;
+    }
 
     public String getGroupId() {
         return groupId;
