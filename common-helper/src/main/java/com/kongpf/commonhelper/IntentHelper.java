@@ -11,12 +11,28 @@ import android.provider.Settings;
 public class IntentHelper {
 
     //跳转到指定应用
-    public static void launchApp(Context context, String packageName) {
+    public static boolean launchApp(Context context, String packageName) {
         try {
            context.startActivity(context.getPackageManager().getLaunchIntentForPackage(packageName));
+           return true;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;
+    }
+
+    //跳转到指定应用
+    public static boolean launchAppWithScheme(Context context,String scheme){
+        try {
+            Intent intent=new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(scheme));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     //跳转到应用详情
