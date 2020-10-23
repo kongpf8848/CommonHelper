@@ -26,6 +26,6 @@ public class Constants {
      * 京东包名
      */
     public static final String PACKAGE_JD="com.jingdong.app.mall";
-    
+
 
 }
