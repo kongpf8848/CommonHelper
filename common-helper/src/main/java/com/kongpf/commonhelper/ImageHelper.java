@@ -140,7 +140,6 @@ public class ImageHelper {
     /**
      * 对ImageView进行旋转
      */
-
     public static void rotate(ImageView imageView,float degree){
         Drawable drawable=imageView.getDrawable();
         Bitmap bitmap=null;
@@ -161,7 +160,7 @@ public class ImageHelper {
      * @param filePath
      * @return
      */
-    public static int getRotateDegree(final String filePath) {
+    public static int getRotateDegree(String filePath) {
         try {
             ExifInterface exifInterface = new ExifInterface(filePath);
             int orientation = exifInterface.getAttributeInt(

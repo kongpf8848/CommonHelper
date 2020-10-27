@@ -23,6 +23,7 @@ public class DateHelper {
         return formatDate(new SimpleDateFormat(format), date);
     }
 
+    //格式化日期
     public static String formatDate(SimpleDateFormat dateFormat, Date date) {
         try {
             return dateFormat.format(date);

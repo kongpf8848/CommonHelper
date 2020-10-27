@@ -11,7 +11,7 @@ import android.hardware.Camera;
 public class CameraHelper
 {
 
-    //判断是否支持Camera
+    //判断机器是否支持Camera
     public static boolean isSupportCameraHardware(Context context)
     {
         return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);

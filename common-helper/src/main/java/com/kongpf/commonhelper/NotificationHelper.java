@@ -16,7 +16,7 @@ import com.kongpf.commonhelper.bean.NotificationInfo;
 
 public class NotificationHelper {
 
-    //获取Builder
+    //获取 Notification Builder
     public static NotificationCompat.Builder getNotificationBuilder(Context context, NotificationInfo notificationInfo) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);

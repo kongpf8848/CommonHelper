@@ -5,7 +5,7 @@ import java.io.File;
 public class FileHelper {
 
     /**
-     * 删除目录
+     * 删除指定目录
      * @param dir
      * @return
      */

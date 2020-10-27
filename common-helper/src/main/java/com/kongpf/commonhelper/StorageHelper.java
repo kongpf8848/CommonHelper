@@ -10,7 +10,7 @@ import java.io.File;
 public class StorageHelper {
 
     /**
-     * 内部沙盒文件目录
+     * 获取内部沙盒文件目录
      * /data/data/xxx/files
      *
      * @param context
@@ -21,7 +21,7 @@ public class StorageHelper {
     }
 
     /**
-     * 内部沙盒缓存目录
+     * 获取内部沙盒缓存目录
      * /data/data/xxx/cache
      *
      * @param context
@@ -32,7 +32,7 @@ public class StorageHelper {
     }
 
     /**
-     * 外部沙盒文件根目录
+     * 获取外部沙盒文件根目录
      * /storage/emulated/0/Android/data/xxx/files
      *
      * @param context
@@ -47,7 +47,7 @@ public class StorageHelper {
     }
 
     /**
-     * 外部沙盒缓存目录
+     * 获取外部沙盒缓存目录
      * /storage/emulated/0/Android/data/xxx/cache
      *
      * @param context
@@ -75,5 +75,14 @@ public class StorageHelper {
      */
     public static File getExternalStoragePublicDirectory(String type) {
         return Environment.getExternalStoragePublicDirectory(type);
+    }
+
+    /**
+     * 是否有外部存储(SD卡)
+     * @return
+     */
+    public static boolean hasExternalStorage()
+    {
+        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
     }
 }
