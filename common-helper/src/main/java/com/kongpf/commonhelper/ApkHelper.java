@@ -132,7 +132,7 @@ public class ApkHelper
     {
         PackageManager pm = context.getPackageManager();
         try {
-            PackageInfo info = pm.getPackageInfo(packageName, 0);
+            PackageInfo info = pm.getPackageInfo(packageName,0);
             return info != null;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
