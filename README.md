@@ -194,6 +194,12 @@ setStatusBarTranslucent(Activity activity); //透明状态栏
 
 setStatusBarColor(Activity activity, int color);  //设置状态栏颜色
 ```
+# KeyboardHelper
+```
+showSoftInput(final View view); //显示键盘
+
+hideSoftInput(final View view); //隐藏键盘
+```
 
 # License
 ```
