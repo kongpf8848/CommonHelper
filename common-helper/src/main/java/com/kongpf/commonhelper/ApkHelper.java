@@ -10,6 +10,7 @@ import android.content.pm.Signature;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Process;
+import android.provider.Settings;
 import android.support.v4.content.FileProvider;
 
 import java.io.File;
@@ -96,6 +97,15 @@ public class ApkHelper
             return;
         }
         try {
+            PackageManager pm= context.getPackageManager();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                if (!pm.canRequestPackageInstalls()) {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, Uri.parse("package:"+ context.getPackageName()));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                    return;
+                }
+            }
             Intent intent = new Intent(Intent.ACTION_VIEW);
             Uri uri;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
