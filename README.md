@@ -148,6 +148,13 @@ dp2px(Context context,float dp); //dp转换为px
 sp2px(Context context,float sp); //sp转换为px
 
 isPad(Context context); //是否为平板
+
+getStatusbarHeight(Context context);  //获取状态栏高度
+
+getNavigationBarHeight(Context context); //获取导航栏高度
+
+getActionBarHeight(Context context); //获取ActionBar高度
+
 ```
 # ShortCutHelper
 ```
@@ -188,8 +195,6 @@ unzip(File zip, File dest); //解压zip文件到指定文件
 ```
 # StatusbarHelper
 ```
-getStatusbarHeight(Context context);   //获取状态栏高度
-
 setStatusBarTranslucent(Activity activity); //透明状态栏
 
 setStatusBarColor(Activity activity, int color);  //设置状态栏颜色
