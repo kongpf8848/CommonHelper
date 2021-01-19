@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.kongpf.commonhelper.AlgorithmHelper;
 import com.kongpf.commonhelper.AlipayHelper;
@@ -63,7 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.button4)
     public void onButton4() {
-        ToastHelper.toast(ScreenHelper.getScreenSize(this).toString());
+        int width=ScreenHelper.getScreenWidth(this);
+        int height=ScreenHelper.getScreenHeight(this);
+        float density=ScreenHelper.getScreenDensity(this);
+        int statusbarHeight=ScreenHelper.getStatusbarHeight(this);
+        int navigationBarHeight=ScreenHelper.getNavigationBarHeight(this);
+        int actionBarHeight=ScreenHelper.getActionBarHeight(this);
+        Log.d("MainActivity", "width ="+width+",height="+height+",density="+density+",statusbarheight="+statusbarHeight+",navigationBarHeight="+navigationBarHeight+",actionBarHeight="+actionBarHeight);
     }
 
     @OnClick(R.id.button5)
