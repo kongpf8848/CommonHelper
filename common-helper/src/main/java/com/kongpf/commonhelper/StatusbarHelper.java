@@ -11,16 +11,6 @@ import android.view.WindowManager;
 
 public class StatusbarHelper {
 
-    //获取状态栏高度
-    public static int getStatusbarHeight(Context context) {
-        int statusHeight = 0;
-        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            statusHeight = context.getResources().getDimensionPixelSize(resourceId);
-        }
-        return statusHeight;
-    }
-
     //透明状态栏
     public static void setStatusBarTranslucent(Activity activity) {
 
