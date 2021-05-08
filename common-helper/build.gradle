@@ -35,7 +35,7 @@ dependencies {
 def siteUrl = 'https://github.com/kongpf8848/CommonHelper'
 def gitUrl = 'https://github.com/kongpf8848/CommonHelper.git'
 def libraryDescription= 'Android Common Helper'
-group = "com.kongpf.commonhelper"
+group = "com.github.kongpf8848"
 install {
     repositories.mavenInstaller {
         pom {
