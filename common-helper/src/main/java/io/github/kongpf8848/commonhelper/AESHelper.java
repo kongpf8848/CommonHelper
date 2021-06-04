@@ -1,4 +1,4 @@
-package com.github.kongpf8848.commonhelper;
+package io.github.kongpf8848.commonhelper;
 
 import android.util.Base64;
 
