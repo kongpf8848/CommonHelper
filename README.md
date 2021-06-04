@@ -6,7 +6,7 @@ Android开发常用的一些功能方法合集,集成了很多简单方便的功
 
 # 添加依赖
 ```
-implementation 'com.github.kongpf8848.commonhelper:common-helper:1.0.19'
+implementation 'io.github.kongpf8848.commonhelper:common-helper:1.0.19'
 ```
 
 # AlgorithmHelper
