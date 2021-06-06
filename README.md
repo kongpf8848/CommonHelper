@@ -1,6 +1,6 @@
 # CommonHelper
 
-Android开发常用的一些功能方法合集,集成了很多简单方便的功能,大大提高开发效率。
+Android开发常用的一些功能方法合集，集成了很多简单方便的功能，大大提高开发效率。
 
 ![image]( https://github.com/kongpf8848/CommonHelper/blob/master/pic/demo.jpg)
 
