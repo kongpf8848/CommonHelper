@@ -1,12 +1,21 @@
 # CommonHelper
 
-Android开发常用的一些功能方法合集,集成了很多简单方便的功能,大大提高开发效率
+Android开发常用的一些功能方法合集，集成了很多简单方便的功能，大大提高开发效率。
 
 ![image]( https://github.com/kongpf8848/CommonHelper/blob/master/pic/demo.jpg)
 
 # 添加依赖
+* 在项目根目录的build.gradle文件中添加：
 ```
-implementation 'io.github.kongpf8848.commonhelper:common-helper:1.0.19'
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+```
+* 在具体Module的build.gradle文件中添加：
+```
+implementation 'io.github.kongpf8848:common-helper:1.0.21'
 ```
 
 # AlgorithmHelper
@@ -208,7 +217,7 @@ hideSoftInput(final View view); //隐藏键盘
 
 # License
 ```
-Copyright (C) 2019 kongpf8848
+Copyright (C) 2021 kongpf8848
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
