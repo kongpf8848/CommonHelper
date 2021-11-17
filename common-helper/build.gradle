@@ -17,6 +17,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     lintOptions{
         abortOnError false
     }
@@ -24,7 +29,7 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api rootProject.ext.dependencies["appcompat-v7"]
+    api rootProject.ext.dependencies["appcompat"]
     testImplementation rootProject.ext.dependencies["junit"]
 }
 

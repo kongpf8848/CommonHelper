@@ -11,12 +11,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Process;
 import android.provider.Settings;
-import android.support.v4.content.FileProvider;
+import androidx.core.content.FileProvider;
 
 import java.io.File;
 import java.util.List;
-
-import io.github.kongpf8848.commonhelper.AlgorithmHelper;
 
 /**
  * Created by pengf on 2017/1/6.

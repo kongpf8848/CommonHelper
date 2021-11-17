@@ -1,9 +1,10 @@
 package io.github.kongpf8848.commonhelper;
 
 import android.content.Context;
-import android.support.annotation.IntDef;
 import android.text.TextUtils;
 import android.util.Base64;
+
+import androidx.annotation.IntDef;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

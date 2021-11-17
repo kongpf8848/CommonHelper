@@ -2,8 +2,9 @@ package io.github.kongpf8848.commonhelper.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import io.github.kongpf8848.commonhelper.AlgorithmHelper;
 import io.github.kongpf8848.commonhelper.AlipayHelper;
@@ -111,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.button13)
     public void onButton13() {
         if (MarketHelper.isMarketAvailable(this)) {
-            MarketHelper.gotoGooglePlay(this,Constants.PACKAGE_WECHAT );
+            MarketHelper.gotoGooglePlay(this,Constants.PACKAGE_WECHAT);
         } else {
             ToastHelper.toast("请先安装应用市场!!!");
         }
