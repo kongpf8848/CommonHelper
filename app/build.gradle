@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace 'io.github.kongpf8848.commonhelper.demo'
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
     defaultConfig {
@@ -19,8 +20,8 @@ android {
 
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     lintOptions {
@@ -34,8 +35,6 @@ dependencies {
     api rootProject.ext.dependencies["appcompat"]
     testImplementation rootProject.ext.dependencies["junit"]
 
-    api rootProject.ext.dependencies["butterknife"]
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
 
 }

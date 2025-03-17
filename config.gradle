@@ -10,7 +10,7 @@ ext {
     dependencies = [
             "junit"                   : "junit:junit:4.12",
             "appcompat"            : "androidx.appcompat:appcompat:1.2.0",
-            "butterknife"             : "com.jakewharton:butterknife:10.2.3",
+            "butterknife"             : "com.jakewharton:butterknife:10.2.1",
             "butterknife-compiler"    : "com.jakewharton:butterknife-compiler:10.2.3",
 
     ]

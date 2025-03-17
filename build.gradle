@@ -1,11 +1,16 @@
 apply from: "config.gradle"
 buildscript {
     repositories {
-        jcenter()
         google()
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/central'
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools.build:gradle:8.7.2'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
 
@@ -14,7 +19,12 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/central'
+        }
         google()
     }
 }
